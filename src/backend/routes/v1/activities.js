@@ -1,10 +1,10 @@
-const {logQuery} = require('@b/keen');
+// const {logQuery} = require('@b/keen');
 const activitiesController = require('@b/controllers/activities');
 const {unmaskActivity, maskActivity} = require('@b/routes/v1/masks');
 
 module.exports = function(router) {
 	router.get(['/api/activity/', '/api/v1/activity/'], (req, res) => {
-		logQuery('activity', req.query);
+		// logQuery('activity', req.query);
 
 		// Transform query data to be used on database
 		req.query = unmaskActivity(req.query);
@@ -24,6 +24,7 @@ module.exports = function(router) {
 			}
 		);
 
+		
 		// Assign filters to query database with
 		const params = Object.assign(
 			{},

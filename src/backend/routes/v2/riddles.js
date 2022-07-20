@@ -1,10 +1,10 @@
-const {logQuery} = require('@b/keen');
+// const {logQuery} = require('@b/keen');
 const riddlesController = require('@b/controllers/riddles');
 const {maskRiddle} = require('@b/routes/v2/masks');
 
 module.exports = function(router) {
 	router.get('/api/v2/riddles(/:key)?', (req, res) => {
-		logQuery('riddle', req.query);
+		// logQuery('riddle', req.query);
 
 		// Assign filters to query database
 		const params = Object.assign(

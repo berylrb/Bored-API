@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var chalk = require('chalk');
-var config = require('./config');
+
 
 require('dotenv').config();
 
@@ -46,13 +46,13 @@ app.all('/*', function(req, res) {
 	res.sendFile(path.join(__dirname, '/dist', '/index.html'));
 });
 
-const PORT = process.env.PORT || config.port;
+const PORT = 3000;
 app.listen(PORT);
 
 console.log(chalk.green('Started on port ' + PORT));
 
 //  Connect to MongoDB
-const DATABASE = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : config.database;
+const DATABASE = process.env.MONGODB_URI
 
 mongoose.Promise = global.Promise;
 mongoose.connect(DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })
